@@ -63,5 +63,14 @@
       ansible.builtin.command: npm install
       args:
         chdir: /app
+
+    - name: Setup SystemD User Service
+      ansible.builtin.copy:
+        src: user.service
+        dest: /etc/systemd/system
+
+    - name: reloading the daemon service
+      ansible.builtin.systemd:
+        daemon_reload: true
+
         
-      
