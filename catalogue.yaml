@@ -23,4 +23,8 @@
     - name: printing the output of user is presnt or not
       ansible.builtin.debug:
         msg: "{{output.rc}}"    
-
+    
+    - name: creating roboshop user
+      ansible.builtin.user: 
+        name: roboshop
+      when output.rc != 0
