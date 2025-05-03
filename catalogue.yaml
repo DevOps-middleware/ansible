@@ -1,0 +1,21 @@
+- name: this playbook is to install catalogue component
+  hosts: catalogue
+  become: yes
+
+  tasks:
+    - name: stupping nodejs repo
+      ansible.builtin.command: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+    
+    - name: installing nodejs
+      ansible.builtin.yum:
+        name: nodejs
+        state: insatlled
+    
+    - name: checking if roboshop user is present or not
+      ansible.builtin.command: id roboshop
+      register: out
+    
+    - name: printing the output of user is present or not
+      ansible.builtin.debug:
+        msg: "out"
+
