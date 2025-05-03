@@ -75,3 +75,15 @@
         state: started
         enabled: yes
 
+    - name: configuring mongodb repo
+      ansible.builtin.service:
+        src: mongo.repo
+        dest: /etc/yum.repos.d
+    
+    - name: installing mongodb shell
+      ansible.builtin.yum:
+        name: mongodb-org-shell
+        state: installed
+    
+    - name: loading mongodb schema into catalogue
+      ansible.builtin.shell: mongo --host 172.31.89.57 < /app/schema/catalogue.js
