@@ -1,0 +1,26 @@
+- name : this playbook is for installong nginx
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: insatallling nginx
+      ansible.builtin.yum:
+        name: nginx
+        state: insatlled
+    
+    - name: starting and enabling nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+ 
+    - name: remove the html folder
+      ansible.builtin.file:
+        path: /usr/share/nginx/html/
+        state: absent
+    
+    - name: creating the nginx folder
+      ansible.bulitin.file:
+        path: /usr/share/nginx/html
+        state: present
+    
