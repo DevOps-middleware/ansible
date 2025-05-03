@@ -55,3 +55,7 @@
         dest: /app
         remote_src: yes
 
+    - name: install nodejs dependencies
+      ansible.builtin.command: npm insatll
+      args:
+       chdir: /app
