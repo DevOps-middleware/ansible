@@ -76,4 +76,9 @@
         name: shipping
         state: started
         enabled: yes
+    
+    - name: installling mysql
+      ansible.builtin.yum:
+        name: mysql
+        state: insatlled
         
