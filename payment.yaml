@@ -44,3 +44,37 @@
         path: /app
         state: directory
       when: directory.stat.exists == false
+
+
+    - name: download payment code in /tmp directory
+      ansible.builtin.get_url:
+        url: https://roboshop-builds.s3.amazonaws.com/payment.zip
+        dest: /tmp
+
+    - name: extract the payment.zip 
+      ansible.builtin.unarchive:
+        src: /tmp/payment
+        dest: /app
+        remote_src: yes
+
+    - name: install application dependencies
+      ansible.builtin.command: pip3.6 install -r requirements.txt
+      args:
+       chdir: /app
+
+    - name: Setup SystemD payment Service
+      ansible.builtin.copy:
+        src: payment.service
+        dest: /etc/systemd/system/
+
+    - name: reloading the daemon service
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: starting and enbaling payment service
+      ansible.builtin.servicve:
+        name: payment
+        state: restarted
+        enabled: yes
+
+        
