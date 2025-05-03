@@ -50,7 +50,7 @@
 
     - name: copy the car app
       ansible.builtin.get_url: 
-        url: curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip
+        url:  https://roboshop-builds.s3.amazonaws.com/cart.zip
         dest: /tmp
     
     - name: extract the cart.zip file
