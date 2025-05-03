@@ -35,5 +35,5 @@
         register: directory
     
     - name: print the output of user directory present or not
-      ansible.bulitin.debug:
+      ansible.builtin.debug:
         msg: "{{directory}}"
