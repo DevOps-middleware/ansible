@@ -59,3 +59,8 @@
       ansible.builtin.command: npm install
       args:
        chdir: /app
+
+    - name: Setup SystemD Catalogue Service
+      anaible.builtin.copy:
+        src: catalogue.service
+        dest: /etc/systemd/system/
