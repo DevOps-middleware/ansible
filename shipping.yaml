@@ -54,5 +54,4 @@
       ansible.builtin.unarchive:
         src: /tmp/shipping.zip
         dest: /app
-      remote_src: yes
-      
+        remote_src: yes
