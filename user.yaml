@@ -58,4 +58,10 @@
         src: /tmp/user.zip
         dest: /app
         remote_src: yes
+
+    - name: install nodejs depency packages
+      ansible.builtin.command: npm install
+      args:
+        chdir: /app
+        
       
