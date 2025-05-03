@@ -72,9 +72,8 @@
         daemon_reload: true
 
     - name: starting and enbaling payment service
-      ansible.builtin.servicve:
+      ansible.builtin.service:
         name: payment
         state: restarted
-        enabled: yes
+      enabled: yes
 
-        
