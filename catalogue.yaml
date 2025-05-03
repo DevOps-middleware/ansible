@@ -64,3 +64,8 @@
       ansible.builtin.copy:
         src: catalogue.service
         dest: /etc/systemd/system/
+
+    - name: reloading the daemon service
+      ansible.builtin.service:
+        daemon_reload: true
+        
