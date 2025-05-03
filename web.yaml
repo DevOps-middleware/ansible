@@ -24,4 +24,15 @@
         path: /usr/share/nginx/html
         state: directory
 
+    - name: downloading the web.zip file
+      ansible.builtin.get_url:
+       url: https://roboshop-builds.s3.amazonaws.com/web.zip
+       dest: /tmp
+    
+    - name: extract the web.zip in /app folder
+      ansible.builtin.unarchive:
+        src: /tmp/web.zip
+        dest: /app
+
+        
     
