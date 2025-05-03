@@ -32,6 +32,7 @@
     - name: checking /app directory exists or not
       ansible.builtin.stat:
         path: /app
+        state: directory
         register: directory
     
     - name: print the output of user directory present or not
