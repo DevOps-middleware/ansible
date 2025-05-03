@@ -1,0 +1,9 @@
+- name: this playbbok is to configure shipping component
+  hosts: shipping
+  become: yes
+
+  tasks:
+    - name: maven installation
+      ansible.builtin.yum:
+        name: maven
+        state: installed
