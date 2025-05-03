@@ -1,0 +1,10 @@
+- name: this playbook is for installing mysql
+  hosts: mysql
+  become: yes
+  
+  tasks:
+    - name: disabliong mysql
+      ansible.builtin.service:
+        name: mysql
+        enabled: no
+        
