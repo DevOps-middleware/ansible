@@ -5,7 +5,7 @@
   tasks:
     - name: install Python 3.6
       ansible.builtin.yum:
-          name: "{{item}}"
+          name: "{{items}}"
           state: installed
           loops: 
             - python36
