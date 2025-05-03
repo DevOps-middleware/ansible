@@ -85,7 +85,7 @@
     - name: loading mysql schema
       ansible.builtin.shell: mysql -h 172.31.21.157 -uroot -pRoboShop@1 < /app/db/schema.sql 
 
-    - name: restarting mysql service
+    - name: restarting shipping service
       ansible.builtin.service:
-        name: mysqld
+        name: shipping
         state: restarted
