@@ -7,3 +7,21 @@
       ansible.builtin.yum:
         name: maven
         state: installed
+
+    - name: check if roboshop user is present or not
+      ansible.builtin.command: id roboshop
+      register: out
+    
+    - name: print the output of roboshop user
+      ansible.builtin.debug:
+        msg: "{{out}}"
+    
+    - name: print the exit status of roboshop user
+      ansible.builtin.debug:
+        msg: "{{out.rc}}"
+
+    - name: creating roboshop user
+      ansible.builtin.user:
+        user: roboshop
+      when out.rc != 0
+      
