@@ -10,8 +10,18 @@
       ansible.builtin.copy:
         src: mysql.repo
         dest: /etc/yum.repos.d
-        
+
     - name: install mysql server 
       ansible.builtin.yum:
         name: mysql-community-server
         state: installed
+
+    - name: change the default username
+      ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
+
+    - name: starting and enabling the mysql service
+      ansible.builtin.service:
+        name: mysqld
+        state: started
+        enabled: yes
+        
