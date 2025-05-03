@@ -27,6 +27,6 @@
 
     - name: restarting the mongodb service
       ansible.builtin.systemd:
-        name: momgod
+        name: mongod
         state: restarted
 
