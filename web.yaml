@@ -22,5 +22,6 @@
     - name: creating the nginx folder
       ansible.bulitin.file:
         path: /usr/share/nginx/html
-        state: present
+        state: directory
+        
     
