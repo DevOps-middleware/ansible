@@ -22,11 +22,11 @@
       
     - name: print the output of user exist status
       ansible.builtin.debug:
-        msg: "{{output.rc}}"
+        msg: "{{out.rc}}"
     
     - name: creating the roboshop user
       ansible.builtin.user:
         name: roboshop
-      when: output.rc != 0
+      when: out.rc != 0
 
 
