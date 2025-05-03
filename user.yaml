@@ -1,0 +1,30 @@
+- name: this pplaybook is for installing user component
+  hosts: user
+  become: yes
+
+  tasks:
+    - name: setuping nodejs repo
+      ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+    - name: installing nodejs
+      ansible.builtin.yum: 
+        name: nodejs
+        state: installed
+    
+    - name: check if roboshop user is present or not
+      ansible.builtin.command: id roboshop
+      register: out
+
+    - name: print the output of roboshop user present or not
+      ansible.builtin.debug:
+        msg: "{{out}}"
+    
+    - name: print the exist status of roboshop user
+      ansible.builtin.debug:
+        msg: "{{out.rc}}"
+
+    - name: creating the roboshop user
+      ansible.builtin.user:
+        name: roboshop
+      when: out.rc != 0
+      
