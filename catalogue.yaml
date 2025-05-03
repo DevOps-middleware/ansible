@@ -61,6 +61,6 @@
        chdir: /app
 
     - name: Setup SystemD Catalogue Service
-      anaible.builtin.copy:
+      ansible.builtin.copy:
         src: catalogue.service
         dest: /etc/systemd/system/
