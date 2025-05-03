@@ -24,7 +24,7 @@
         msg: "{{output.rc}}"
     
     - name: creating the roboshop user
-      ansible.builitin.user:
+      ansible.builtin.user:
         name: roboshop
       when: output.rc != 0
 
