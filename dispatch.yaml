@@ -1,0 +1,53 @@
+- name: this playbook is for dispatch
+  hosts: dispatch
+  become: yes
+
+  tasks:
+    - name: installing golang
+      ansible.builtin.yum:
+        name: golong
+        state: installed
+
+    - name: checking if roboshop user is present or not
+      ansible.builtin.command: id roboshop
+      register: output
+      ignore_errors: true
+    
+    - name: printing the output of user is present or not
+      ansible.builtin.debug:
+        msg: "{{output}}"
+
+    - name: printing the output of user is presnt or not
+      ansible.builtin.debug:
+        msg: "{{output.rc}}"    
+    
+    - name: creating roboshop user
+      ansible.builtin.user: 
+        name: roboshop
+      when: output.rc != 0
+
+    - name: checking /app directory exists or not
+      ansible.builtin.stat:
+        path: /app
+      register: directory
+    
+    - name: print the output of user directory present or not
+      ansible.builtin.debug:
+        msg: "{{directory}}"
+    
+    - name: create /app directory
+      ansible.builtin.file:
+        path: /app
+        state: directory
+      when: directory.stat.exists == false
+
+    - name: Lets download the dependencies & build the software.
+      anaible.buioltin.command: "go {{item}}""
+      args:
+       chdir /app
+      loop: 
+        - mod init dispatch
+        - get
+        - build
+
+
