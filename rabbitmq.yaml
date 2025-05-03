@@ -15,10 +15,10 @@
        state: installed
 
     - name: start and enable rabbitmq server
-      ansible.builtin.servive:
+      ansible.builtin.service:
         name: rabbitmq-server
         state: started
-      enabled: yes
+        enabled: yes
 
     - name: create roboshop user
       ansible.builtin.shell: rabbitmqctl add_user roboshop roboshop123
