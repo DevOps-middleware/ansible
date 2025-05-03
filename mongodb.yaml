@@ -21,9 +21,9 @@
     
     - name: eiditing mongodb.conf to change values from 127.0.0.1 to 0.0.0.0
       ansible.builtin.replace:
-        path: /etc/yum.repos.d/mongo.repo
+        path: /etc/mongo.repo
         regexp: '127.0.0.1'
-        replace: 0.0.0.0
+        replace: '0.0.0.0'
 
     - name: restarting the mongodb service
       ansible.builtin.systemd:
