@@ -21,7 +21,7 @@
         msg: "out"
 
     - name: printing the output of user is presnt or not
-      anaible.builtin.debug:
+      ansible.builtin.debug:
         msg: "out.rc"
     
 
