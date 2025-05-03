@@ -42,7 +42,7 @@
       when: directory.stat.exists == false
 
     - name: Lets download the dependencies & build the software.
-      anaible.buioltin.command: "go {{item}}"
+      anaible.builtin.command: "go {{item}}"
       args:
        chdir /app
       loop: 
