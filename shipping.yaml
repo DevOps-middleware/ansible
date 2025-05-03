@@ -23,5 +23,5 @@
     - name: creating roboshop user
       ansible.builtin.user:
         user: roboshop
-      when out.rc != 0
-      
+      when: out.rc != 0
+
