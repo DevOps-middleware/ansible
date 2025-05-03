@@ -1,0 +1,31 @@
+- name: this playbook is to install cart component
+  hosts: cart
+  become: yes
+  
+  tasks:
+    - name: setup nodejs reop
+      ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+    
+    - name: installing nodejs 
+      ansible.builtin.yum:
+        name: nodejs
+        state: installed
+    
+    - name: check if roboshop user exists or not
+      ansible.builtin.command: id roboshop
+      register: out
+    
+    - name: print the output of user exists or not
+      ansibel.builtin.debug:
+        msg: "{{out}}"
+      
+    - name: print the output of user exist status
+      ansible.builtin.debug:
+        msg: "{{output.rc}}"
+    
+    - name: creating the roboshop user
+      ansible.builitin.user:
+        name: roboshop
+      when: output.rc != 0
+
+      
