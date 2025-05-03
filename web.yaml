@@ -32,7 +32,7 @@
     - name: extract the web.zip in /app folder
       ansible.builtin.unarchive:
         src: /tmp/web.zip
-        dest: /app
+        dest: /usr/share/nginx/html
 
-        
+
     
