@@ -84,6 +84,13 @@
 
     - name: loading mysql schema
       ansible.builtin.shell: mysql -h 172.31.21.157 -uroot -pRoboShop@1 < /app/db/schema.sql 
+      
+    - name: loading mysql schema1
+
+      ansible.builtin.shell: mysql -h 172.31.21.157 -uroot -pRoboShop@1 < /app/db/app-user.sql 
+
+    - name: loading mysql schema2
+      ansible.builtin.shell: mysql -h 172.31.21.157 -uroot -pRoboShop@1 < /app/db/master-data.sql
 
     - name: restarting shipping service
       ansible.builtin.service:
