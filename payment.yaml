@@ -1,0 +1,13 @@
+- name: gthis playbook is to configure payment service
+  hosts: payment
+  become: yes
+
+  tasks:
+    - name: install Python 3.6
+      ansible.builtin.yum:
+          name: "{{item}}"
+          state: installed
+      loops: 
+       - python36
+       - gcc
+       - python3-devel
