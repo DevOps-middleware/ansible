@@ -45,3 +45,14 @@
         state: directory
       when: directory.stat.exists == false
 
+    - name: download the code to /app directory
+      ansible.builtin.get_url:
+        url: https://roboshop-builds.s3.amazonaws.com/shipping.zip
+        dest: /tmp
+
+    - name: extract the zip file
+      ansible.builtin.unarchive:
+        src: /tmp/shipping.zip
+        dest: /app
+      remote_src: yes
+      
