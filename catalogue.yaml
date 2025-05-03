@@ -13,14 +13,14 @@
     
     - name: checking if roboshop user is present or not
       ansible.builtin.command: id roboshop
-      register: out
+      register: output
       ignore_errors: true
     
     - name: printing the output of user is present or not
       ansible.builtin.debug:
-        msg: out
+        msg: output
 
     - name: printing the output of user is presnt or not
       ansible.builtin.debug:
-        msg: ott.rc    
+        msg: output.rc    
 
