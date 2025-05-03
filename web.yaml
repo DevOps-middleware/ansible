@@ -20,8 +20,8 @@
         state: absent
     
     - name: creating the nginx folder
-      ansible.bulitin.file:
+      ansible.builtin.file:
         path: /usr/share/nginx/html
         state: directory
-        
+
     
