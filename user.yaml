@@ -83,7 +83,14 @@
       ansible.builtin.copy:
         src: mongo.repo
         dest: /etc/yum.repos.d/
-      
+    
+    - name: installing mongo-shell
+      ansible.builtin.yum:
+        name: mongodb-org-shell
+        state: installed
+    
+    - name: loading user schema in mongodb
+      ansible.builtin.shell: mongo --host 172.31.89.57 < /app/schema/user.js
 
 
 
