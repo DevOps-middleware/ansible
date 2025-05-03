@@ -9,7 +9,7 @@
     - name: installing nodejs
       ansible.builtin.yum:
         name: nodejs
-        state: insatlled
+        state: installed
     
     - name: checking if roboshop user is present or not
       ansible.builtin.command: id roboshop
