@@ -55,3 +55,9 @@
         src: /tmp/shipping.zip
         dest: /app
         remote_src: yes
+
+    - name: downloading application dependencies
+      ansible.builtin.command: mvn clean package
+      args:
+        chdir: /app
+        
