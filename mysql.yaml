@@ -4,7 +4,4 @@
   
   tasks:
     - name: disabliong mysql
-      ansible.builtin.service:
-        name: mysql
-        enabled: no
-        
+      ansible.builtin.command: yum module disable mysql -y 
