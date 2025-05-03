@@ -16,7 +16,7 @@
       register: out
     
     - name: print the output of user exists or not
-      ansibel.builtin.debug:
+      ansible.builtin.debug:
         msg: "{{out}}"
       
     - name: print the output of user exist status
@@ -28,4 +28,4 @@
         name: roboshop
       when: output.rc != 0
 
-      
+
