@@ -18,9 +18,9 @@
     
     - name: printing the output of user is present or not
       ansible.builtin.debug:
-        msg: "{{output}}""
+        msg: "{{output}}"
 
     - name: printing the output of user is presnt or not
       ansible.builtin.debug:
-        msg: output.rc    
+        msg: "{{output.rc}}"    
 
