@@ -80,5 +80,4 @@
     - name: installling mysql
       ansible.builtin.yum:
         name: mysql
-        state: insatlled
-        
+        state: installed
