@@ -14,7 +14,7 @@
         state: installed
       
     - name: starting mongodb 
-      anaible.builtin.service:
+      ansible.builtin.service:
         name: mongod
         state: started
         enabled: yes
@@ -30,4 +30,3 @@
         name: momgod
         state: restarted
 
-        
