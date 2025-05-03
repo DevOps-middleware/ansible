@@ -48,6 +48,18 @@
         state: directory
       when: directory.stat.exists == false
 
-      
+    - name: install nodejs dependencies
+      ansible.builtin.command: npm install
+      args:
+       chdir: /app
+
+    - name: Setup SystemD Cart Service
+      ansible.builtin.copy: 
+        src: cart.service
+        dest: /etc/systemd/system
+    
+    - name: reload the daemon service
+      ansible.builtin.systemd:
+        daemon_reload: true
 
 
