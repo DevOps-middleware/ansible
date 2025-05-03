@@ -71,3 +71,9 @@
         src: shipping.service
         dest: /etc/systemd/system
 
+    - name: starting and enabling the shipping service
+      ansible.builtin.service:
+        name: shipping
+        state: started
+        enabled: yes
+        
