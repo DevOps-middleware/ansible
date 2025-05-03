@@ -29,4 +29,25 @@
         name: roboshop
       when: out.rc != 0
 
+    - name: check /app directory is present or not
+      ansible.builtin.stat: 
+        path: /app
+      register: directory
+
+    - name: print the output of /app directory
+      ansible.builtin.debug:
+        msg: "{{directory}}"
+    
+    - name: print the exist status of /app directory
+      ansible.builtin.debug:
+        msg: "{{directory.stat.exists}}"
+    
+    - name: creating /app directory
+      ansible.builtin.file:
+        path: /app
+        state: directory
+      when: directory.stat.exists == false
+
+      
+
 
